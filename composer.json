@@ -1,0 +1,12 @@
+{
+    "name": "gusev/pg",
+    "authors": [
+        {
+            "name": "Pavel Gusev",
+            "email": "gusev@techart.ru"
+        }
+    ],
+    "require": {
+        "bramus/ansi-php": "^3.1"
+    }
+}

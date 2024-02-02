@@ -1,0 +1,74 @@
+#!/usr/local/bin/php 
+<?php
+
+$pwd = getcwd();
+$wd = __DIR__;
+
+
+include("{$wd}/vendor/autoload.php");
+include("{$wd}/App.php");
+include("{$wd}/Widget.php");
+include("{$wd}/WidgetList.php");
+include("{$wd}/WidgetBranches.php");
+include("{$wd}/WidgetRemote.php");
+include("{$wd}/WidgetStatus.php");
+include("{$wd}/WidgetIndex.php");
+include("{$wd}/WidgetText.php");
+include("{$wd}/WidgetDialog.php");
+include("{$wd}/WidgetView.php");
+include("{$wd}/WidgetDiff.php");
+include("{$wd}/WidgetProcess.php");
+include("{$wd}/WidgetHelp.php");
+include("{$wd}/Git.php");
+include("{$wd}/GitGui.php");
+
+use \Bramus\Ansi\ControlSequences\EscapeSequences\Enums\SGR;
+
+Git::init();
+
+
+App::run(function() {
+	(new GitGui)->run();	
+
+	//var_dump(Git::branches());
+
+	//testKey();
+	//testSeq();
+});
+
+
+function testKeys()
+{
+	ctoi();
+	$c = fread(STDIN, 1); 
+	while ($c) {
+		print '[' . ord($c) . ']';
+		$c = fread(STDIN, 1); 
+	}
+}
+
+function testSeq()
+{
+	while(true) {
+		$m = getKeySeq();
+		print "{$m}\n";
+	}
+}
+
+
+function testKey()
+{
+	while(true) {
+		$m = getKey();
+		print "{$m}\n";
+	}
+}
+
+/*
+
+┌─┐
+│ │
+└─┘
+├┤
+
+*/
